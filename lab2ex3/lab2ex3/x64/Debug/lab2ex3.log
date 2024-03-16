@@ -1,0 +1,6 @@
+﻿  Global.cpp
+  main.cpp
+  MovieSeries.cpp
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab2ex3\lab2ex3\MovieSeries.cpp(31,8): error C3861: 'movie_compare_passed_years': identifier not found
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab2ex3\lab2ex3\MovieSeries.cpp(32,5): error C3861: 'swap': identifier not found
+  Generating Code...
