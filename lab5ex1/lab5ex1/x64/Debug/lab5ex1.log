@@ -1,0 +1,8 @@
+﻿  Number.cpp
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab5ex1\lab5ex1\Number.cpp(10,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab5ex1\lab5ex1\Number.cpp(94,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab5ex1\lab5ex1\Number.cpp(352,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab5ex1\lab5ex1\Number.cpp(401,15): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
+  lab5ex1.vcxproj -> C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab5ex1\x64\Debug\lab5ex1.exe

@@ -15,12 +15,14 @@
 	 for (int i = 0; i < n; i++)
 		 this->v[i] = (rand() % (maxi - mini) + 1) + mini;
 }
+ Sort::Sort() : v (new int[6] {1, 2, 3, 4, 5, 6}) 
+ {
+	 this->count = 6;
+ }
 
  Sort::Sort(int a[10001], int nr)
  {
 	 v = new int[nr];
-	 for (int i = 0; i < this->count; i++)
-		 this->v[i] = 0;
 	 this->count = nr;
 	 for (int i = 0; i < nr; i++)
 		 this->v[i] = a[i];
@@ -60,10 +62,7 @@
 	 }
 
  }
- Sort::Sort() : v (new int[6] {1, 2, 3, 4, 5, 6}) 
- {
-	 this->count = 6;
- }
+
 
 void  Sort::InsertSort(bool ascendent )
 {
@@ -182,11 +181,11 @@ void  Sort::Print()
 	printf("\n");
 
 }
-int   Sort::GetElementsCount()
+int Sort::GetElementsCount()
 {
 	return this->count;
 }
-int   Sort::GetElementFromIndex(int index)
+int Sort::GetElementFromIndex(int index)
 {
 	if (index >= this->count)
 	{

@@ -1,2 +1,6 @@
-﻿  main.cpp
+﻿  Sort.cpp
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab4ex1\lab4ex1\Sort.cpp(13,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab4ex1\lab4ex1\Sort.cpp(55,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
   lab4ex1.vcxproj -> C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab4ex1\x64\Debug\lab4ex1.exe
