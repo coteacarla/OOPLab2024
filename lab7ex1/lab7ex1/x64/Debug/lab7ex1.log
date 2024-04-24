@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab7ex1\lab7ex1\main.cpp(6,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab7ex1\lab7ex1\main.cpp(11,21): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  lab7ex1.vcxproj -> C:\Users\Carla\Desktop\OOP\OOPLabs2024\lab7ex1\x64\Debug\lab7ex1.exe

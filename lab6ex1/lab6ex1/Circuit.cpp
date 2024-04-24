@@ -33,7 +33,7 @@ void Circuit::ShowFinalRanks()
 				std::swap(rezultate[i], rezultate[j]);
 	printf("Rezultate finale:\n");
 	for (i = 0; i < nrelem; i++)
-		if (rezultate[i]->getFinishTime() > 0)
+		if (rezultate[i]->getFinishTime() >= 0)
 			printf("Masina %s a terminat in %d minute\n", rezultate[i]->GetName(), rezultate[i]->getFinishTime());
 	delete[] rezultate;
 }
@@ -44,7 +44,7 @@ void Circuit::ShowWhoDidNotFinish()
 	for (i = 0; i < this->nrelem; i++)
 	{
 		vector[i]->raceTime(this->lenght, weather);
-		if (vector[i]->getFinishTime() == -1)
+		if (vector[i]->getFinishTime() <0)
 		{ 
 		printf("Masina %s nu a terminat\n", vector[i]->GetName());
 		ok = false;
