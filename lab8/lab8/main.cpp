@@ -10,6 +10,19 @@
 
 using namespace std;
 
+class Compare {
+public:
+    bool operator() (pair<string, int> p1, pair<string, int> p2) {
+        if (p1.second < p2.second)
+            return true;
+        if (p1.second > p2.second)
+            return false;
+        if (p1.first < p2.first)
+            return true;
+        return false;
+    }
+};
+
 int main() {
     string MyString;
     ifstream file("input.txt");
@@ -48,22 +61,21 @@ int main() {
         MyMap[word]++;
     }
 
+  
+    cout << "Map before sorting:" << endl;
     for (const auto& pair : MyMap) {
         cout << pair.first << " => " << pair.second << endl;
     }
 
-    auto comparator = [](const pair<string, int>& a, const pair<string, int>& b) {
-        if (a.second == b.second) {
-            return a.first > b.first;
-        }
-        return a.second < b.second;
-        };
-    priority_queue<pair<string, int>, vector<pair<string, int>>, decltype(comparator)> sortedWords(comparator);
+ 
+    priority_queue<pair<string, int>, vector<pair<string, int>>, Compare> sortedWords;
 
     for (const auto& pair : MyMap) {
         sortedWords.push(pair);
     }
 
+
+    cout << "Map after sorting:" << endl;
     while (!sortedWords.empty()) {
         cout << sortedWords.top().first << " => " << sortedWords.top().second << endl;
         sortedWords.pop();
