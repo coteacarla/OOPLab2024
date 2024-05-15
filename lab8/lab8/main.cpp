@@ -61,8 +61,6 @@ int main() {
         MyMap[word]++;
     }
 
-  
-    cout << "Map before sorting:" << endl;
     for (const auto& pair : MyMap) {
         cout << pair.first << " => " << pair.second << endl;
     }
@@ -74,8 +72,6 @@ int main() {
         sortedWords.push(pair);
     }
 
-
-    cout << "Map after sorting:" << endl;
     while (!sortedWords.empty()) {
         cout << sortedWords.top().first << " => " << sortedWords.top().second << endl;
         sortedWords.pop();
