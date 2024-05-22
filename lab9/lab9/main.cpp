@@ -1,18 +1,18 @@
 #include <iostream>
 #include <cstring>
 
-template<typename K, typename V, size_t SIZE = 100>
+template<typename K, typename V, int SIZE = 100>
 class Map {
 private:
     K keys[SIZE];
     V values[SIZE];
-    size_t count;
+    int count;
 
 public:
     Map() : count(0) {}
 
     void Set(const K& key, const V& value) {
-        for (size_t i = 0; i < count; ++i) {
+        for (int i = 0; i < count; ++i) {
             if (keys[i] == key) {
                 values[i] = value;
                 return;
@@ -24,7 +24,7 @@ public:
     }
 
     bool Get(const K& key, V& value) const {
-        for (size_t i = 0; i < count; ++i) {
+        for (int i = 0; i < count; ++i) {
             if (keys[i] == key) {
                 value = values[i];
                 return true;
@@ -33,7 +33,7 @@ public:
         return false;
     }
 
-    size_t Count() const {
+    int Count() const {
         return count;
     }
 
@@ -42,9 +42,9 @@ public:
     }
 
     bool Delete(const K& key) {
-        for (size_t i = 0; i < count; ++i) {
+        for (int i = 0; i < count; ++i) {
             if (keys[i] == key) {
-                for (size_t j = i; j < count - 1; ++j) {
+                for (int j = i; j < count - 1; ++j) {
                     keys[j] = keys[j + 1];
                     values[j] = values[j + 1];
                 }
@@ -56,15 +56,15 @@ public:
     }
 
     bool Includes(const Map<K, V>& otherMap) const {
-        for (size_t i = 0; i < otherMap.count; ++i) {
-            bool found = false;
-            for (size_t j = 0; j < count; ++j) {
+        for (int i = 0; i < otherMap.count; ++i) {
+            bool ok = false;
+            for (int j = 0; j < count; ++j) {
                 if (keys[j] == otherMap.keys[i]) {
-                    found = true;
+                    ok= true;
                     break;
                 }
             }
-            if (!found) {
+            if (!ok) {
                 return false;
             }
         }
@@ -74,10 +74,10 @@ public:
     class Iterator {
     private:
         const Map<K, V>& map;
-        size_t index;
+        int index;
 
     public:
-        Iterator(const Map<K, V>& m, size_t i) : map(m), index(i) {}
+        Iterator(const Map<K, V>& m, int i) : map(m), index(i) {}
 
         bool operator!=(const Iterator& other) const {
             return index != other.index;
@@ -90,7 +90,7 @@ public:
         struct Entry {
             K key;
             V value;
-            size_t index;
+            int index;
         };
 
         Entry operator*() const {
@@ -107,7 +107,7 @@ public:
     }
 
     V& operator[](const K& key) {
-        for (size_t i = 0; i < count; ++i) {
+        for (int i = 0; i < count; ++i) {
             if (keys[i] == key) {
                 return values[i];
             }
