@@ -42,7 +42,6 @@ private:
     T** List;
 public:
     ArrayIterator() : Current(0), List(nullptr) {}
-    ArrayIterator(T** list, int start) : List(list), Current(start) {}
 
     ArrayIterator& operator++ ()
     {
@@ -89,9 +88,9 @@ private:
     }
 
 public:
-    Array() : List(nullptr), Capacity(0), Size(0) {}
+    Array() : List(nullptr), Capacity(0), Size(0) {}// Lista nu e alocata, Capacity si Size = 0
 
-    ~Array()
+    ~Array()// destructor
     {
         for (int i = 0; i < Size; ++i)
         {
@@ -100,12 +99,12 @@ public:
         delete[] List;
     }
 
-    Array(int capacity) : Capacity(capacity), Size(0)
+    Array(int capacity) : Capacity(capacity), Size(0)// Lista e alocata cu 'capacity' elemente
     {
         List = new T * [Capacity];
     }
 
-    Array(const Array<T>& otherArray) : Capacity(otherArray.Capacity), Size(otherArray.Size)
+    Array(const Array<T>& otherArray) : Capacity(otherArray.Capacity), Size(otherArray.Size)// constructor de copiere
     {
         List = new T * [Capacity];
         for (int i = 0; i < Size; ++i)
@@ -114,13 +113,13 @@ public:
         }
     }
 
-    T& operator[](int index)
+    T& operator[](int index)// arunca exceptie daca index este out of range
     {
         CheckIndex(index);
         return *List[index];
     }
 
-    const Array<T>& operator+=(const T& newElem)
+    const Array<T>& operator+=(const T& newElem)// adauga un element de tipul T la sfarsitul listei si returneaza this
     {
         if (Size >= Capacity)
         {
@@ -130,7 +129,7 @@ public:
         return *this;
     }
 
-    const Array<T>& Insert(int index, const T& newElem)
+    const Array<T>& Insert(int index, const T& newElem)// adauga un element pe pozitia index, retureaza this. Daca index e invalid arunca o exceptie
     {
         if (index < 0 || index > Size)
         {
@@ -150,7 +149,7 @@ public:
         return *this;
     }
 
-    const Array<T>& Insert(int index, const Array<T> otherArray)
+    const Array<T>& Insert(int index, const Array<T> otherArray) // adauga o lista pe pozitia index, retureaza this. Daca index e invalid arunca o exceptie
     {
         if (index < 0 || index > Size)
         {
@@ -173,7 +172,7 @@ public:
         return *this;
     }
 
-    const Array<T>& Delete(int index)
+    const Array<T>& Delete(int index)// sterge un element de pe pozitia index, returneaza this. Daca index e invalid arunca o exceptie
     {
         CheckIndex(index);
         delete List[index];
@@ -206,22 +205,22 @@ public:
         return true;
     }
 
-    void Sort()
+    void Sort()// sorteaza folosind comparatia intre elementele din T
     {
         std::sort(List, List + Size, [](T* a, T* b) { return *a < *b; });
     }
 
-    void Sort(int(*compare)(const T&, const T&))
+    void Sort(int(*compare)(const T&, const T&))// sorteaza folosind o functie de comparatie
     {
         std::sort(List, List + Size, [compare](T* a, T* b) { return compare(*a, *b) < 0; });
     }
 
-    void Sort(Compare* comparator)
+    void Sort(Compare* comparator)// sorteaza folosind un obiect de comparatie
     {
         std::sort(List, List + Size, [comparator](T* a, T* b) { return comparator->CompareElements(a, b) < 0; });
     }
 
-    int BinarySearch(const T& elem)
+    int BinarySearch(const T& elem)// cauta un element folosind binary search in Array
     {
         int left = 0, right = Size - 1;
         while (left <= right)
@@ -243,7 +242,7 @@ public:
         return -1;
     }
 
-    int BinarySearch(const T& elem, int(*compare)(const T&, const T&))
+    int BinarySearch(const T& elem, int(*compare)(const T&, const T&))//  cauta un element folosind binary search si o functie de comparatie
     {
         int left = 0, right = Size - 1;
         while (left <= right)
@@ -266,7 +265,8 @@ public:
         return -1;
     }
 
-    int BinarySearch(const T& elem, Compare* comparator)
+    int BinarySearch(const T& elem, Compare* comparator)//  cauta un element folosind binary search si un comparator
+
     {
         int left = 0, right = Size - 1;
         while (left <= right)
@@ -289,7 +289,7 @@ public:
         return -1;
     }
 
-    int Find(const T& elem)
+    int Find(const T& elem)// cauta un element in Array
     {
         for (int i = 0; i < Size; ++i)
         {
@@ -301,7 +301,7 @@ public:
         return -1;
     }
 
-    int Find(const T& elem, int(*compare)(const T&, const T&))
+    int Find(const T& elem, int(*compare)(const T&, const T&))//  cauta un element folosind o functie de comparatie
     {
         for (int i = 0; i < Size; ++i)
         {
@@ -313,7 +313,7 @@ public:
         return -1;
     }
 
-    int Find(const T& elem, Compare* comparator)
+    int Find(const T& elem, Compare* comparator)//  cauta un element folosind un comparator
     {
         for (int i = 0; i < Size; ++i)
         {
@@ -345,8 +345,6 @@ public:
         return ArrayIterator<T>(List, Size);
     }
 };
-
-// Example usage
 int main()
 {
     try
