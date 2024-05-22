@@ -14,9 +14,9 @@ class Compare {
 public:
     bool operator() (pair<string, int> p1, pair<string, int> p2) {
         if (p1.second < p2.second)
-            return true;
-        if (p1.second > p2.second)
             return false;
+        if (p1.second > p2.second)
+            return true;
         if (p1.first < p2.first)
             return true;
         return false;
@@ -61,7 +61,10 @@ int main() {
         MyMap[word]++;
     }
 
+<<<<<<< HEAD
  
+=======
+>>>>>>> 3f50ec0b5eae106bffa5c1f1fc668594e7c3bfd3
     for (const auto& pair : MyMap) {
         cout << pair.first << " => " << pair.second << endl;
     }
@@ -73,8 +76,11 @@ int main() {
         sortedWords.push(pair);
     }
 
+<<<<<<< HEAD
 
  
+=======
+>>>>>>> 3f50ec0b5eae106bffa5c1f1fc668594e7c3bfd3
     while (!sortedWords.empty()) {
         cout << sortedWords.top().first << " => " << sortedWords.top().second << endl;
         sortedWords.pop();
