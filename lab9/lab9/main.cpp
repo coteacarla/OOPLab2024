@@ -106,7 +106,16 @@ public:
         return Iterator(*this, count);
     }
 
-
+    V& operator[](const K& key) {
+        for (size_t i = 0; i < count; ++i) {
+            if (keys[i] == key) {
+                return values[i];
+            }
+        }
+        keys[count] = key;
+        values[count] = V();
+        return values[count++];
+    }
 };
 
 int main() {
@@ -114,12 +123,18 @@ int main() {
     m[10] = "C++";
     m[20] = "test";
     m[30] = "Poo";
-    for (auto [key, value, index] : m) {
-        std::cout << "Index:" << index << ", Key=" << key << ", Value=" << value << '\n';
+
+    for (auto i = m.begin(); i != m.end(); ++i) {
+        auto entry = *i;
+        std::cout << "Index:" << entry.index << ", Key=" << entry.key << ", Value=" << entry.value << '\n';
     }
+
     m[20] = "result";
-    for (auto [key, value, index] : m) {
-        std::cout << "Index:" << index << ", Key=" << key << ", Value=" << value << '\n';
+
+    for (auto i = m.begin(); i != m.end(); ++i) {
+        auto entry = *i;
+        std::cout << "Index:" << entry.index << ", Key=" << entry.key << ", Value=" << entry.value << '\n';
     }
+
     return 0;
 }
