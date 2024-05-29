@@ -1,0 +1,78 @@
+﻿  main.cpp
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.h(14,14): error C2065: 'Feline': undeclared identifier
+  (compiling source file 'main.cpp')
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.h(14,21): error C2059: syntax error: '>'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31): error C2672: 'begin': no matching overloaded function found
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xutility(1824,27):
+  could be '_Ty *std::begin(_Ty (&)[_Size]) noexcept'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	'_Ty *std::begin(_Ty (&)[_Size]) noexcept': could not deduce template argument for '_Ty (&)[_Size]' from 'unknown-type'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xutility(1806,30):
+  or       'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	Failed to specialize function template 'unknown-type std::begin(const _Container &) noexcept(<expr>)'
+  		C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  		With the following template arguments:
+  			C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  			'_Container=unknown-type'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xutility(1800,30):
+  or       'unknown-type std::begin(_Container &) noexcept(<expr>)'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	Failed to specialize function template 'unknown-type std::begin(_Container &) noexcept(<expr>)'
+  		C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  		With the following template arguments:
+  			C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  			'_Container=unknown-type'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\initializer_list(54,35):
+  or       'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	'const _Elem *std::begin(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'unknown-type'
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31): error C2672: 'end': no matching overloaded function found
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xutility(1829,27):
+  could be '_Ty *std::end(_Ty (&)[_Size]) noexcept'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	'_Ty *std::end(_Ty (&)[_Size]) noexcept': could not deduce template argument for '_Ty (&)[_Size]' from 'unknown-type'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xutility(1818,30):
+  or       'unknown-type std::end(const _Container &) noexcept(<expr>)'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	Failed to specialize function template 'unknown-type std::end(const _Container &) noexcept(<expr>)'
+  		C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  		With the following template arguments:
+  			C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  			'_Container=unknown-type'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xutility(1812,30):
+  or       'unknown-type std::end(_Container &) noexcept(<expr>)'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	Failed to specialize function template 'unknown-type std::end(_Container &) noexcept(<expr>)'
+  		C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  		With the following template arguments:
+  			C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  			'_Container=unknown-type'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\initializer_list(59,35):
+  or       'const _Elem *std::end(std::initializer_list<_Elem>) noexcept'
+  	C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31):
+  	'const _Elem *std::end(std::initializer_list<_Elem>) noexcept': could not deduce template argument for 'std::initializer_list<_Elem>' from 'unknown-type'
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31): error C3536: '<begin>$L3': cannot be used before it is initialized
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,31): error C3536: '<end>$L3': cannot be used before it is initialized
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\main.cpp(23,33): error C2100: illegal indirection
+  Zoo.cpp
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.h(14,14): error C2065: 'Feline': undeclared identifier
+  (compiling source file 'Zoo.cpp')
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.h(14,21): error C2059: syntax error: '>'
+  (compiling source file 'Zoo.cpp')
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.cpp(13,1): error C2556: 'std::vector<Feline *,std::allocator<Feline *>> Zoo::GetFelines(void)': overloaded function differs only by return type from 'unknown-type Zoo::GetFelines(void)'
+  C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.h(14,23):
+  see declaration of 'Zoo::GetFelines'
+  
+C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.cpp(12,28): error C2371: 'Zoo::GetFelines': redefinition; different basic types
+  C:\Users\Carla\Desktop\OOP\OOPLabs2024\Zoo\Zoo\Zoo.h(14,23):
+  see declaration of 'Zoo::GetFelines'
+  
+  Generating Code...
