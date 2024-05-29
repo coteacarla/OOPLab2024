@@ -1,43 +1,10 @@
 #include <iostream>
-#include <exception>
-#include <algorithm> 
+#include <cstring>
 
-using namespace std;
-
-class DivisionByZeroException : public exception
-{
-    virtual const char* what() const throw()
-    {
-        return "Division by zero!";
-    }
-};
-
-class IndexOutOfBoundsException : public exception
-{
-    virtual const char* what() const throw()
-    {
-        return "Index is out of bounds!";
-    }
-};
-
-class CapacityExceededException : public exception
-{
-    virtual const char* what() const throw()
-    {
-        return "Array capacity exceeded!";
-    }
-};
-
-class Compare
-{
-public:
-    virtual int CompareElements(void* e1, void* e2) = 0;
-};
-
-template<class T>
-class ArrayIterator
-{
+template<typename K, typename V, int SIZE = 100>
+class Map {
 private:
+<<<<<<< HEAD
     int Current;
     T** List;
 public:
@@ -191,19 +158,75 @@ public:
             for (int i = 0; i < Size; ++i)
             {
                 delete List[i];
-            }
-            delete[] List;
+=======
+    K keys[SIZE];
+    V values[SIZE];
+    int count;
 
-            Capacity = otherArray.Capacity;
-            Size = otherArray.Size;
-            List = new T * [Capacity];
-            for (int i = 0; i < Size; ++i)
-            {
-                List[i] = new T(*otherArray.List[i]);
+public:
+    Map() : count(0) {}
+
+    void Set(const K& key, const V& value) {
+        for (int i = 0; i < count; ++i) {
+            if (keys[i] == key) {
+                values[i] = value;
+                return;
+>>>>>>> 8efe7dfbb9f3c645bd524c385e4cc1e4bfd079c6
+            }
+        }
+        keys[count] = key;
+        values[count] = value;
+        ++count;
+    }
+
+    bool Get(const K& key, V& value) const {
+        for (int i = 0; i < count; ++i) {
+            if (keys[i] == key) {
+                value = values[i];
+                return true;
+            }
+        }
+        return false;
+    }
+
+    int Count() const {
+        return count;
+    }
+
+    void Clear() {
+        count = 0;
+    }
+
+    bool Delete(const K& key) {
+        for (int i = 0; i < count; ++i) {
+            if (keys[i] == key) {
+                for (int j = i; j < count - 1; ++j) {
+                    keys[j] = keys[j + 1];
+                    values[j] = values[j + 1];
+                }
+                --count;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool Includes(const Map<K, V>& otherMap) const {
+        for (int i = 0; i < otherMap.count; ++i) {
+            bool ok = false;
+            for (int j = 0; j < count; ++j) {
+                if (keys[j] == otherMap.keys[i]) {
+                    ok= true;
+                    break;
+                }
+            }
+            if (!ok) {
+                return false;
             }
         }
         return true;
     }
+<<<<<<< HEAD
 
     void Sort()// sorteaza folosind comparatia intre elementele din T
     {
@@ -237,11 +260,20 @@ public:
             else
             {
                 right = mid - 1;
+=======
+    V& operator[](const K& key) {
+        for (int i = 0; i < count; ++i) {
+            if (keys[i] == key) {
+                return values[i];
+>>>>>>> 8efe7dfbb9f3c645bd524c385e4cc1e4bfd079c6
             }
         }
-        return -1;
+        keys[count] = key;
+        values[count] = V();
+        return values[count++];
     }
 
+<<<<<<< HEAD
     int BinarySearch(const T& elem, int(*compare)(const T&, const T&))//  cauta un element folosind binary search si o functie de comparatie
     {
         int left = 0, right = Size - 1;
@@ -261,10 +293,21 @@ public:
             {
                 right = mid - 1;
             }
-        }
-        return -1;
-    }
+=======
+    class Iterator {
+    private:
+        const Map<K, V>& map;
+        int index;
 
+    public:
+        Iterator(const Map<K, V>& m, int i) : map(m), index(i) {}
+
+        bool operator!=(const Iterator& other) const {
+            return index != other.index;
+>>>>>>> 8efe7dfbb9f3c645bd524c385e4cc1e4bfd079c6
+        }
+
+<<<<<<< HEAD
     int BinarySearch(const T& elem, Compare* comparator)//  cauta un element folosind binary search si un comparator
 
     {
@@ -285,10 +328,13 @@ public:
             {
                 right = mid - 1;
             }
+=======
+        void operator++() {
+            ++index;
+>>>>>>> 8efe7dfbb9f3c645bd524c385e4cc1e4bfd079c6
         }
-        return -1;
-    }
 
+<<<<<<< HEAD
     int Find(const T& elem)// cauta un element in Array
     {
         for (int i = 0; i < Size; ++i)
@@ -297,10 +343,24 @@ public:
             {
                 return i;
             }
+=======
+        struct Entry {
+            K key;
+            V value;
+            int index;
+        };
+
+        Entry operator*() const {
+            return { map.keys[index], map.values[index], index };
+>>>>>>> 8efe7dfbb9f3c645bd524c385e4cc1e4bfd079c6
         }
-        return -1;
+    };
+
+    Iterator begin() const {
+        return Iterator(*this, 0);
     }
 
+<<<<<<< HEAD
     int Find(const T& elem, int(*compare)(const T&, const T&))//  cauta un element folosind o functie de comparatie
     {
         for (int i = 0; i < Size; ++i)
@@ -324,62 +384,29 @@ public:
         }
         return -1;
     }
-
-    int GetSize() const
-    {
-        return Size;
+=======
+    Iterator end() const {
+        return Iterator(*this, count);
     }
 
-    int GetCapacity() const
-    {
-        return Capacity;
-    }
+>>>>>>> 8efe7dfbb9f3c645bd524c385e4cc1e4bfd079c6
 
-    ArrayIterator<T> GetBeginIterator()
-    {
-        return ArrayIterator<T>(List, 0);
-    }
-
-    ArrayIterator<T> GetEndIterator()
-    {
-        return ArrayIterator<T>(List, Size);
-    }
 };
 
 int main()
 {
-    try
+    Map<int, const char*> m;
+    m[10] = "C++";
+    m[20] = "test";
+    m[30] = "Poo";
+    for (auto [key, value, index] : m)
     {
-        Array<int> arr(5);
-        arr += 1;
-        arr += 2;
-        arr += 3;
-        arr.Insert(1, 4);
-
-        for (int i = 0; i < arr.GetSize(); ++i)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-
-        arr.Delete(2);
-        for (int i = 0; i < arr.GetSize(); ++i)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-
-        arr.Sort();
-        for (int i = 0; i < arr.GetSize(); ++i)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
+        printf("Index:%d, Key=%d, Value=%s\n", index, key, value);
     }
-    catch (const exception& e)
+    m[20] = "result";
+    for (auto [key, value, index] : m)
     {
-        cout << "Exception: " << e.what() << endl;
+        printf("Index:%d, Key=%d, Value=%s\n", index, key, value);
     }
-
     return 0;
 }
